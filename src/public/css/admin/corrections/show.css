@@ -1,0 +1,276 @@
+/* 勤怠詳細ページ用スタイル */
+body {
+  background-color: #efeeec;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+.attendance-detail-wrapper {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #efeeec;
+  min-height: calc(100vh - 80px);
+}
+
+/* タイトル */
+.page-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 20px 0 30px;
+  border-left: 8px solid #000;
+  padding-left: 10px;
+  margin-left: 280px;
+  color: #000;
+  text-align: left;
+  width: fit-content;
+  line-height: 1.2;
+}
+
+/* カード風の枠 */
+.attendance-detail-card {
+  width: 100%;
+  max-width: 890px;
+  background: #fff;
+  padding: 6px 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(1, 1, 1, 0.1);
+  margin: 35px auto 10px auto;
+  margin-left: 280px;
+}
+
+/* テーブル */
+.attendance-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.attendance-detail-table th,
+.attendance-detail-table td {
+  padding: 26px 12px;
+  text-align: left;
+  font-size: 19px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.attendance-detail-table tr:last-child th,
+.attendance-detail-table tr:last-child td {
+  border-bottom: none;
+}
+
+.attendance-detail-table th {
+  width: 300px;
+  font-weight: bold;
+  color: #817d7d;
+  text-align: left;
+}
+
+.name-cell {
+  padding-left: 65px !important;
+}
+
+.attendance-detail-table td.date-cell {
+  letter-spacing: normal;
+
+}
+
+.date-cell {
+  display: flex;
+  align-items: center;
+}
+
+.date-cell .year {
+  margin-right: 177px;
+  transform: translateX(45px);
+}
+
+.date-cell .month,
+.date-cell .day {
+  margin-right: 0;
+}
+
+/* 入力欄 */
+.attendance-detail-table input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 30px;
+  font-size: 19px;
+  margin: 0 10px;
+  font-family: inherit;
+  font-weight: bold;
+  width: 120px;
+  margin-left: 14px;
+}
+
+.attendance-detail-table textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 15px;
+  margin: 0 10px;
+  font-family: inherit;
+  font-weight: bold;
+  text-align: left;
+  width: 324px;
+  resize: vertical;
+  min-height: 80px;
+  margin-left: 14px;
+}
+
+.attendance-detail-table td {
+  color: #000;
+  font-weight: bold;
+}
+
+/* 入力欄と波線を独立配置 */
+.time-range {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* 左入力欄 */
+.time-range .start-time {
+  margin-left: 90px;
+}
+
+/* 波線 */
+.time-range .tilde {
+  margin: 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 右入力欄 */
+.time-range .end-time {
+  margin-left: 0;
+}
+
+.fake-input {
+  display: inline-block;
+  width: 120px;
+  padding: 6px 8px;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-left: 21.8px;
+}
+
+.tilde {
+  text-align: center;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* フッターボタン */
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  font-weight: bold;
+  margin-right: 260px;
+}
+
+.btn-submit {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+/* 承認済みボタン用 */
+.btn-submit[disabled] {
+  background-color: #b3b3b3;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 6px;
+  margin-left: 90px;
+  text-align: left;
+}
+
+.pending-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 910px;
+}
+
+.approve-msg {
+  font-size: 16px;
+  margin-left: 20px;
+  color: #333;
+}
+
+/* =========================
+   レスポンシブ対応
+========================= */
+
+/* --- 基準幅（〜1512px） --- */
+@media screen and (max-width: 1512px) {
+  .page-title {
+    font-size: 30px;
+  }
+
+  .attendance-detail-card {
+    padding: 24px;
+  }
+}
+
+/* --- ノートPC（1024px〜1366px） --- */
+@media screen and (max-width: 1366px) {
+  .page-title {
+    font-size: 26px;
+  }
+
+  .attendance-detail-card {
+    max-width: 100%;
+  }
+}
+
+/* --- タブレット（768px〜1023px） --- */
+@media screen and (max-width: 1023px) {
+  .page-title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .attendance-detail-card {
+    padding: 20px;
+  }
+}
+
+/* --- スマホ（〜767px） --- */
+@media screen and (max-width: 767px) {
+  .page-title {
+    font-size: 20px;
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .attendance-detail-card {
+    padding: 15px;
+  }
+
+  .attendance-detail-table th,
+  .attendance-detail-table td {
+    font-size: 14px;
+  }
+}

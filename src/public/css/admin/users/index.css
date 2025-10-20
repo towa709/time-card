@@ -1,0 +1,169 @@
+body {
+  background-color: #efeeec;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  color: #817f7f;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  border-left: 8px solid #000;
+  padding-left: 12px;
+  margin-left: 145px;
+  margin-bottom: 95px;
+  align-self: flex-start;
+}
+
+.user-table {
+  width: 100%;
+  max-width: 1120px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  table-layout: fixed;
+}
+
+.user-table thead th {
+  border-bottom: 4px solid #eee;
+}
+
+.user-table th,
+.user-table td {
+  padding: 14px 10px;
+  text-align: center;
+  border-bottom: 3px solid #eee;
+}
+
+.user-table th {
+  background-color: #ffffff;
+  font-weight: bold;
+  color: #817f7f;
+}
+
+.user-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* 各列の幅を調整 */
+.user-table th:nth-child(1),
+.user-table td:nth-child(1) {
+  width: 20%;
+}
+
+.user-table th:nth-child(2),
+.user-table td:nth-child(2) {
+  width: 7%;
+}
+
+.user-table th:nth-child(3),
+.user-table td:nth-child(3) {
+  width: 20%;
+}
+
+.user-table a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.user-table a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   レスポンシブ対応
+========================= */
+
+/* --- 基準幅以下 (〜1512px) --- */
+@media screen and (max-width: 1512px) {
+  .time {
+    font-size: 80px;
+  }
+
+  .btn {
+    font-size: 32px;
+    min-width: 200px;
+  }
+}
+
+/* --- PC (1400px〜1540px) --- */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+  .attendance-container {
+    padding: 70px;
+  }
+
+  .time {
+    font-size: 80px;
+  }
+
+  .btn {
+    font-size: 26px;
+    min-width: 220px;
+  }
+}
+
+/* --- ノートPC (1024px〜1366px) --- */
+@media screen and (max-width: 1366px) {
+  .date {
+    font-size: 32px;
+  }
+
+  .time {
+    font-size: 65px;
+  }
+
+  .btn {
+    font-size: 24px;
+    min-width: 160px;
+  }
+}
+
+/* --- タブレット (768px〜850px) --- */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .attendance-container {
+    padding: 40px;
+  }
+
+  .date {
+    font-size: 24px;
+  }
+
+  .time {
+    font-size: 55px;
+  }
+
+  .btn {
+    font-size: 20px;
+    min-width: 160px;
+    padding: 14px 0;
+  }
+}
+
+/* --- スマホ (〜767px) --- */
+@media screen and (max-width: 767px) {
+  .date {
+    font-size: 22px;
+  }
+
+  .time {
+    font-size: 36px;
+  }
+
+  .btn {
+    font-size: 18px;
+    min-width: 120px;
+    padding: 12px 0;
+  }
+}

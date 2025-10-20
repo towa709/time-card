@@ -1,0 +1,229 @@
+body {
+  background-color: #efeeec;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+/* コンテナ */
+.attendance-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 90px 28px;
+  border-radius: 8px;
+}
+
+.attendance-list-container {
+  max-width: 1110px;
+  width: 100%;
+}
+
+/* タイトル（勤怠一覧） */
+.page-title {
+  font-size: 35px;
+  font-weight: bold;
+  color: #000;
+  border-left: 8px solid #000;
+  padding-left: 10px;
+  margin-bottom: 30px;
+  margin-right: 760px;
+  width: fit-content;
+  line-height: 1.2;
+}
+
+/* 月切り替え用コンテナ */
+.month-nav-container {
+  max-width: 1110px;
+  width: 100%;
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(1, 1, 1, 0.1);
+  margin-bottom: 40px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+/* 月切り替え */
+.month-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-button {
+  color: #757575;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.month-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  top: -3px;
+}
+
+/* 左カラム（前月リンク） */
+.month-nav .nav-button:first-child {
+  justify-self: start;
+}
+
+/* 中央カラム（年月表示＋カレンダーアイコン） */
+.month-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* 右カラム（翌月リンク） */
+.month-nav .nav-button:last-child {
+  justify-self: end;
+}
+
+.current-month {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* テーブル */
+.attendance-table {
+  max-width: 1110px;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: -60px;
+  margin-left: 5px;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  table-layout: fixed;
+}
+
+/* ヘッダー */
+.attendance-table thead th {
+  background-color: #ffffff;
+  font-weight: bold;
+  color: #757575;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 8px;
+  border-bottom: 4px solid #ddd;
+}
+
+/* ヘッダー角丸 */
+.attendance-table thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.attendance-table thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* テーブル全体 */
+.attendance-table th,
+.attendance-table td,
+.attendance-table td a {
+  padding: 12px 10px;
+  text-align: center;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+}
+
+.attendance-table td {
+  background-color: #ffffff;
+  padding: 14px 8px;
+  border-bottom: 2px solid #e0e0e0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #757575;
+}
+
+/* 最終行の調整 */
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.attendance-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.attendance-table tbody tr:last-child td:last-child {
+  border-bottom: none;
+}
+
+/* 詳細ボタン */
+.detail-button {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-weight: bold;
+}
+
+.detail-button:hover {
+  /* background-color: #020202; */
+  color: #000000;
+}
+
+/* =========================
+   レスポンシブ対応
+========================= */
+
+/* --- PC (1400px〜1540px) --- */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+  .attendance-container {
+    padding: 70px;
+  }
+
+  .time {
+    font-size: 80px;
+  }
+
+  .btn {
+    font-size: 26px;
+    min-width: 220px;
+  }
+}
+
+/* --- タブレット (768px〜850px) --- */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .attendance-container {
+    padding: 40px;
+  }
+
+  .date {
+    font-size: 24px;
+  }
+
+  .time {
+    font-size: 55px;
+  }
+
+  .btn {
+    font-size: 20px;
+    min-width: 160px;
+    padding: 14px 0;
+  }
+}
