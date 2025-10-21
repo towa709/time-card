@@ -47,9 +47,40 @@ php artisan key:generate
 6. マイグレーションの実行
 ``` bash
 docker-compose exec php bash
-php artisan migrate 
+php artisan migrate --seed
 ```
 ※これでマイグレーションとデータ投入は完了です
+
+---
+
+### ⚠️ トラブルシューティング：初回アクセス時に「419 Page Expired」が表示される場合
+
+環境構築直後に http://localhost/login へアクセスすると、
+セッション関連の不整合により「419 | Page Expired」が表示される場合があります。
+
+その場合は、以下のコマンドを実行して修正してください。
+``` bash
+docker-compose exec php bash
+php artisan session:table
+php artisan migrate
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+chmod -R 777 storage bootstrap/cache
+exit
+```
+また、💡 .env 設定確認（参考）
+
+以下の設定が含まれていることを確認してください：
+``` text
+SESSION_DRIVER=database
+SESSION_DOMAIN=localhost
+```
+
+変更した場合は必ず設定を再読み込みしてください。
+```bash
+php artisan config:clear
+```
 
 7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
 ```bash
@@ -59,7 +90,7 @@ chmod -R 775 storage bootstrap/cache
 ```
 
 8. テスト用データベースの作成  
-テストは `laravel_test` データベースを使用します。  
+テストは `laravel_test_db` データベースを使用します。  
 初回のみ以下を実行して DB を作成してください。
 
 ```bash
@@ -69,9 +100,7 @@ mysql -u root -p
 
 MySQL コンソールに入ったら以下を入力：
 ```bash
-CREATE DATABASE IF NOT EXISTS laravel_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-GRANT ALL PRIVILEGES ON laravel_test.* TO 'laravel_user'@'%';
-FLUSH PRIVILEGES;
+CREATE DATABASE laravel_test_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
 EXIT;
 ```
 これでテスト用 DB が準備されます。
