@@ -52,10 +52,20 @@ php artisan migrate --seed
 ※エラーが出た場合、下記を実行して再度、マイグレーション実行。
 ```bash
 docker-compose down
+docker volume ls
+#残っているボリュームを削除してから再ビルド。残ってなければ、そのまま再ビルド。
 docker volume rm time-card4_db_data
 docker-compose up -d --build
+#コンテナの起動を確認
+docker ps
 ```
----
+
+7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
+```bash
+docker-compose exec php bash
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+```
 
 7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
 ```bash
