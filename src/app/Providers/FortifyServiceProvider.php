@@ -9,9 +9,13 @@ use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Contracts\RegisterResponse;
 use Laravel\Fortify\Contracts\LoginResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
 use App\Actions\Fortify\CreateNewUser;
 use App\Http\Requests\LoginRequest;
@@ -87,22 +91,28 @@ class FortifyServiceProvider extends ServiceProvider
 
     Fortify::authenticateUsing(function ($request) {
       if ($request->is('admin/*')) {
-        if (Auth::guard('admin')->attempt([
-          'email' => $request->email,
-          'password' => $request->password,
-        ])) {
-          return Auth::guard('admin')->user();
+        $admin = Admin::where('email', $request->email)->first();
+
+        if (! $admin || ! Hash::check($request->password, $admin->password)) {
+          $validator = Validator::make([], []);
+          $validator->errors()->add('email', $request->authenticationFailedMessage());
+          throw new ValidationException($validator);
         }
+
+        Auth::guard('admin')->login($admin);
+        return $admin;
       }
 
-      if (Auth::attempt([
-        'email' => $request->email,
-        'password' => $request->password,
-      ])) {
-        return Auth::user();
+      $user = User::where('email', $request->email)->first();
+
+      if (! $user || ! Hash::check($request->password, $user->password)) {
+        $validator = Validator::make([], []);
+        $validator->errors()->add('email', $request->authenticationFailedMessage());
+        throw new ValidationException($validator);
       }
 
-      return null;
+      Auth::login($user);
+      return $user;
     });
   }
 }
