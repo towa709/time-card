@@ -49,10 +49,43 @@ php artisan key:generate
 docker-compose exec php bash
 php artisan migrate --seed
 ```
-※これでマイグレーションとデータ投入は完了です
-
+※エラーが出た場合、下記を実行して再度、マイグレーション実行。
+```bash
+docker-compose down
+docker volume rm time-card4_db_data
+docker-compose up -d --build
+```
 ---
 
+7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
+```bash
+docker-compose exec php bash
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+```
+
+8. テスト用データベースの作成  
+テストは `laravel_test_db` データベースを使用します。  
+初回のみ以下を実行して DB を作成してください。
+
+```bash
+docker-compose exec mysql bash
+mysql -u root -p
+```
+
+MySQL コンソールに入ったら以下を入力：
+```bash
+CREATE DATABASE laravel_test_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
+GRANT ALL PRIVILEGES ON laravel_test_db.* TO 'laravel_user'@'%';
+FLUSH PRIVILEGES;
+EXIT;
+```
+これでテスト用 DB が準備されます。
+
+9. テストの実行
+```bash
+php artisan test --env=testing
+```
 ### ⚠️ トラブルシューティング：初回アクセス時に「419 Page Expired」が表示される場合
 
 環境構築直後に http://localhost/login へアクセスすると、
@@ -82,46 +115,9 @@ SESSION_DOMAIN=localhost
 php artisan config:clear
 ```
 
-7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
-```bash
-docker-compose exec php bash
-chown -R www-data:www-data storage bootstrap/cache
-chmod -R 775 storage bootstrap/cache
-```
-
-8. テスト用データベースの作成  
-テストは `laravel_test_db` データベースを使用します。  
-初回のみ以下を実行して DB を作成してください。
-
-```bash
-docker-compose exec mysql bash
-mysql -u root -p
-```
-
-MySQL コンソールに入ったら以下を入力：
-```bash
-CREATE DATABASE laravel_test_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
-EXIT;
-```
-これでテスト用 DB が準備されます。
-
-9. テストの実行
-```bash
-php artisan test --env=testing
-```
-
-
-### 実施内容
-
-⚠️ キャッシュに関する注意
-
-同じ PC で フリマアプリ と 勤怠アプリ を切り替えて利用する場合、
-ブラウザのキャッシュが残って以前の CSS が反映されることがあります。
-その際は Ctrl + Shift + R（スーパーリロード） を実行してください。
-
 ## ER図
 
-![ER図](docs/er-diagram-v2.png)
+![ER図](src/docs/er-diagram-v1.png)
 
 ## URL
 - 開発環境：http://localhost
