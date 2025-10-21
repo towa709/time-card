@@ -27,8 +27,8 @@ class AdminAttendanceDetailTest extends TestCase
     $this->attendance = Attendance::factory()->create([
       'user_id' => $this->user->id,
       'work_date' => Carbon::today()->toDateString(),
-      'clock_in' => '09:00:00',
-      'clock_out' => '18:00:00',
+      'clock_in'  => now()->setTime(9, 0, 0)->format('Y-m-d H:i:s'),
+      'clock_out' => now()->setTime(18, 0, 0)->format('Y-m-d H:i:s'),
     ]);
   }
 

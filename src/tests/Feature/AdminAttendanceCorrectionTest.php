@@ -64,8 +64,8 @@ class AdminAttendanceCorrectionTest extends TestCase
 
     $correction = AttendanceCorrection::factory()->create([
       'attendance_id' => $attendance->id,
-      'requested_clock_in' => '09:00:00',
-      'requested_clock_out' => '18:00:00',
+      'requested_clock_in' => now()->setTime(9, 0, 0)->format('Y-m-d H:i:s'),
+      'requested_clock_out' => now()->setTime(18, 0, 0)->format('Y-m-d H:i:s'),
       'note' => 'テスト修正申請',
       'status' => 'pending',
     ]);
@@ -86,28 +86,28 @@ class AdminAttendanceCorrectionTest extends TestCase
 
     $attendance = Attendance::factory()->create([
       'user_id' => $user->id,
-      'clock_in' => '08:00:00',
-      'clock_out' => '17:00:00',
+      'clock_in'  => now()->setTime(8, 0, 0)->format('Y-m-d H:i:s'),
+      'clock_out' => now()->setTime(17, 0, 0)->format('Y-m-d H:i:s'),
       'work_date' => Carbon::today()->format('Y-m-d'),
     ]);
 
     $correction = AttendanceCorrection::factory()->create([
       'attendance_id' => $attendance->id,
-      'requested_clock_in' => '09:00:00',
-      'requested_clock_out' => '18:00:00',
+      'requested_clock_in' => now()->setTime(9, 0, 0)->format('Y-m-d H:i:s'),
+      'requested_clock_out' => now()->setTime(18, 0, 0)->format('Y-m-d H:i:s'),
       'status' => 'pending',
     ]);
 
     AttendanceCorrectionBreak::factory()->create([
       'attendance_correction_id' => $correction->id,
-      'break_start' => '12:00:00',
-      'break_end' => '13:00:00',
+      'break_start' => now()->setTime(12, 0, 0)->format('Y-m-d H:i:s'),
+      'break_end'   => now()->setTime(13, 0, 0)->format('Y-m-d H:i:s'),
     ]);
 
     AttendanceCorrectionBreak::factory()->create([
       'attendance_correction_id' => $correction->id,
-      'break_start' => '15:00:00',
-      'break_end' => '16:00:00',
+      'break_start' => now()->setTime(15, 0, 0)->format('Y-m-d H:i:s'),
+      'break_end'   => now()->setTime(16, 0, 0)->format('Y-m-d H:i:s'),
     ]);
 
     $response = $this->actingAs($admin, 'admin')->post(
@@ -125,4 +125,3 @@ class AdminAttendanceCorrectionTest extends TestCase
     $this->assertEquals(360, $attendance->total_work_time);
   }
 }
-
