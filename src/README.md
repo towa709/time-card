@@ -132,3 +132,4 @@ php artisan config:clear
 - Nginx
 - MailHog
 - phpMyAdmin
+
