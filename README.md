@@ -6,7 +6,7 @@
 ## 環境構築
 **Dockerビルド**
 1. `git clone git@github.com:towa709/time-card.git`
-2. `cd time_card`
+2. `cd time-card`
 3. DockerDesktopアプリを立ち上げる
 4. `docker-compose up -d --build`
 
