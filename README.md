@@ -67,13 +67,6 @@ chown -R www-data:www-data storage bootstrap/cache
 chmod -R 775 storage bootstrap/cache
 ```
 
-7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
-```bash
-docker-compose exec php bash
-chown -R www-data:www-data storage bootstrap/cache
-chmod -R 775 storage bootstrap/cache
-```
-
 8. テスト用データベースの作成  
 テストは `laravel_test_db` データベースを使用します。  
 初回のみ以下を実行して DB を作成してください。
