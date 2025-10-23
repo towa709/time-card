@@ -58,6 +58,8 @@ docker volume ls
 # docker volume rm time-card_db_data
 docker-compose up -d --build
 docker ps
+# 再びマイグレーション
+php artisan migrate --seed
 ```
 ※これでマイグレーションとデータ投入は完了です。
 ## テストユーザー情報
@@ -116,6 +118,7 @@ EXIT;
 
 9. テストの実行
 ```bash
+docker-compose exec php bash
 php artisan test --env=testing
 ```
 ### ⚠️ トラブルシューティング：初回アクセス時に「419 Page Expired」が表示される場合
