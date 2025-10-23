@@ -1,4 +1,3 @@
-/* 勤怠詳細ページ用スタイル */
 body {
   background-color: #efeeec;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
@@ -15,7 +14,6 @@ body {
   min-height: calc(100vh - 80px);
 }
 
-/* タイトル */
 .page-title {
   font-size: 35px;
   font-weight: bold;
@@ -29,7 +27,6 @@ body {
   line-height: 1.2;
 }
 
-/* カード風の枠 */
 .attendance-detail-card {
   width: 100%;
   max-width: 890px;
@@ -41,7 +38,6 @@ body {
   margin-left: 280px;
 }
 
-/* テーブル */
 .attendance-detail-table {
   width: 100%;
   border-collapse: collapse;
@@ -92,7 +88,6 @@ body {
   margin-right: 0;
 }
 
-/* 入力欄 */
 .attendance-detail-table input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -125,26 +120,22 @@ body {
   font-weight: bold;
 }
 
-/* 入力欄と波線を独立配置 */
 .time-range {
   display: flex;
   align-items: center;
   gap: 0;
 }
 
-/* 左入力欄 */
 .time-range .start-time {
   margin-left: 90px;
 }
 
-/* 波線 */
 .time-range .tilde {
   margin: 0 20px;
   font-weight: bold;
   text-align: center;
 }
 
-/* 右入力欄 */
 .time-range .end-time {
   margin-left: 0;
 }
@@ -166,7 +157,6 @@ body {
   margin-left: 10px;
 }
 
-/* フッターボタン */
 .form-footer {
   display: flex;
   justify-content: flex-end;
@@ -190,7 +180,6 @@ body {
   opacity: 0.8;
 }
 
-/* 承認済みボタン用 */
 .btn-submit[disabled] {
   background-color: #b3b3b3;
   cursor: not-allowed;
@@ -218,11 +207,6 @@ body {
   color: #333;
 }
 
-/* =========================
-   レスポンシブ対応
-========================= */
-
-/* --- 基準幅（〜1512px） --- */
 @media screen and (max-width: 1512px) {
   .page-title {
     font-size: 30px;
@@ -233,7 +217,6 @@ body {
   }
 }
 
-/* --- ノートPC（1024px〜1366px） --- */
 @media screen and (max-width: 1366px) {
   .page-title {
     font-size: 26px;
@@ -244,7 +227,6 @@ body {
   }
 }
 
-/* --- タブレット（768px〜1023px） --- */
 @media screen and (max-width: 1023px) {
   .page-title {
     font-size: 22px;
@@ -256,7 +238,6 @@ body {
   }
 }
 
-/* --- スマホ（〜767px） --- */
 @media screen and (max-width: 767px) {
   .page-title {
     font-size: 20px;

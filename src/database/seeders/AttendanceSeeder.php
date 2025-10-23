@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Attendance;
 use App\Models\WorkBreak;
-use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 
 class AttendanceSeeder extends Seeder
@@ -53,7 +52,6 @@ class AttendanceSeeder extends Seeder
           $totalWork = $clockOut->diffInMinutes($clockIn) - $breakMinutes;
           if ($totalWork < 0) $totalWork = 0;
 
-          // ✅ Attendance 登録
           $attendance = Attendance::updateOrCreate(
             [
               'user_id'   => $user->id,
@@ -67,12 +65,11 @@ class AttendanceSeeder extends Seeder
             ]
           );
 
-          // ✅ WorkBreak 再登録（日時付き）
           WorkBreak::where('attendance_id', $attendance->id)->delete();
 
           WorkBreak::create([
             'attendance_id' => $attendance->id,
-            'break_start'   => $day->copy()->setTime(12, 0), // ← 日付付きに修正
+            'break_start'   => $day->copy()->setTime(12, 0),
             'break_end'     => $day->copy()->setTime(13, 0),
           ]);
 

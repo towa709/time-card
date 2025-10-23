@@ -4,11 +4,10 @@ body {
 
 .verify-container {
   max-width: 800px;
-  margin: 80px auto;
+  margin: 130px auto 80px;
   padding: 40px 20px;
   background-color: #fff;
   text-align: center;
-  margin-top: 130px;
 }
 
 .verify-message {
@@ -19,7 +18,8 @@ body {
 
 .verify-button {
   display: inline-block;
-  padding: 12px 30px;
+  width: 220px;
+  padding: 18px 0;
   font-size: 18px;
   border: 1px solid #000;
   background-color: #d8d2d2;
@@ -37,12 +37,16 @@ body {
 .verify-resend {
   display: inline-block;
   margin-top: 55px;
-  font-size: 14px;
+  font-size: 17px;
   color: #0066cc;
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.verify-resend:hover {
+  color: #004999;
 }
 
 .verify-alert {
@@ -51,55 +55,60 @@ body {
   font-weight: bold;
 }
 
-.verify-resend:hover {
-  color: #004999;
-}
-
-@media screen and (max-width: 1512px) {
-  .page-title {
-    font-size: 30px;
-  }
-
-  .attendance-detail-card {
-    padding: 24px;
-  }
-}
-
 @media screen and (max-width: 1366px) {
-  .page-title {
-    font-size: 26px;
+  .verify-container {
+    max-width: 700px;
+    padding: 30px;
   }
 
-  .attendance-detail-card {
-    max-width: 100%;
+  .verify-message {
+    font-size: 14px;
+  }
+
+  .verify-button {
+    width: 680px;
+    font-size: 17px;
+    padding: 16px 0;
   }
 }
 
-@media screen and (max-width: 1023px) {
-  .page-title {
-    font-size: 22px;
-    text-align: center;
+@media screen and (max-width: 850px) {
+  .verify-container {
+    max-width: 90%;
+    padding: 25px;
   }
 
-  .attendance-detail-card {
-    padding: 20px;
+  .verify-message {
+    font-size: 14px;
+  }
+
+  .verify-button {
+    width: 100%;
+    max-width: 90%;
+    font-size: 16px;
+    padding: 14px 0;
+  }
+
+  .verify-resend {
+    font-size: 13px;
+    margin-top: 40px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .page-title {
-    font-size: 20px;
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
+  .verify-container {
+    margin: 100px auto;
+    padding: 20px;
   }
 
-  .attendance-detail-card {
-    padding: 15px;
+  .verify-message {
+    font-size: 13px;
+    line-height: 1.6;
   }
 
-  .attendance-detail-table th,
-  .attendance-detail-table td {
-    font-size: 14px;
+  .verify-button {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px 0;
   }
 }

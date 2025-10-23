@@ -17,7 +17,6 @@ class AttendanceCorrectionFactory extends Factory
     $user = User::factory()->create();
     $today = Carbon::today();
 
-    // ✅ Attendance を正しい datetime 形式で作成
     $attendance = Attendance::create([
       'user_id' => $user->id,
       'work_date' => $today->format('Y-m-d'),

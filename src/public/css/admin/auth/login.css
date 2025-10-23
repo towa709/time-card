@@ -1,9 +1,7 @@
-/* 背景 */
 body {
   background-color: #ffffff;
 }
 
-/* コンテナ */
 .login-container {
   margin: 80px auto;
   padding: 60px 50px;
@@ -14,7 +12,6 @@ body {
   max-width: 1512px;
 }
 
-/* タイトル */
 .login-title {
   font-size: 36px;
   margin-top: -65px;
@@ -22,7 +19,6 @@ body {
   font-weight: bold;
 }
 
-/* フォーム要素 */
 .login-form .form-group {
   width: 100%;
   max-width: 680px;
@@ -53,7 +49,6 @@ body {
   border-radius: 4px;
 }
 
-/* エラーメッセージ */
 .error-message {
   color: red;
   font-size: 14px;
@@ -62,7 +57,6 @@ body {
   text-align: left;
 }
 
-/* ボタン下専用の中央寄せエラーメッセージ */
 .error-center {
   margin-top: 12px;
   color: red;
@@ -70,7 +64,6 @@ body {
   text-align: center;
 }
 
-/* ログインボタン */
 .login-button {
   width: 100%;
   max-width: 680px;
@@ -92,18 +85,12 @@ body {
   opacity: 0.9;
 }
 
-/* =========================
-   レスポンシブ対応
-========================= */
-
-/* --- 基準幅以下 (〜1512px) --- */
 @media screen and (max-width: 1512px) {
   .login-container {
     max-width: 800px;
   }
 }
 
-/* --- PC (1400px〜1540px) --- */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .login-container {
     max-width: 650px;
@@ -125,7 +112,6 @@ body {
   }
 }
 
-/* --- ノートPC (1024px〜1366px) --- */
 @media screen and (max-width: 1366px) {
   .login-container {
     max-width: 650px;
@@ -145,7 +131,6 @@ body {
   }
 }
 
-/* --- タブレット (768px〜850px) --- */
 @media screen and (min-width: 768px) and (max-width: 850px) {
   .login-container {
     max-width: 90%;
@@ -167,7 +152,6 @@ body {
   }
 }
 
-/* --- スマホ (〜767px) --- */
 @media screen and (max-width: 767px) {
   .login-container {
     padding: 20px;

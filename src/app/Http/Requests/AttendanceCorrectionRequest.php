@@ -12,9 +12,6 @@ class AttendanceCorrectionRequest extends FormRequest
     return true;
   }
 
-  /**
-   * 🔹 breaks配列を break_start1, break_end1 ... に変換
-   */
   protected function prepareForValidation()
   {
     if ($this->has('breaks')) {
@@ -26,10 +23,8 @@ class AttendanceCorrectionRequest extends FormRequest
         $mapped["break_end{$index}"]   = $break['end'] ?? null;
       }
 
-      // 🔹 変換結果をマージ
       $this->merge($mapped);
 
-      // 🔹 元のbreaks配列を消しておく
       $this->offsetUnset('breaks');
     }
   }

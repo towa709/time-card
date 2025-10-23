@@ -140,7 +140,6 @@ body {
   text-decoration: underline;
 }
 
-/* 日付セル */
 .date-cell {
   text-align: center;
   font-size: 18px;
@@ -190,11 +189,6 @@ body {
   background-color: #333;
 }
 
-/* =========================
-   レスポンシブ対応
-========================= */
-
-/* --- 基準幅以下 (〜1512px) --- */
 @media screen and (max-width: 1512px) {
   .time {
     font-size: 80px;
@@ -206,7 +200,6 @@ body {
   }
 }
 
-/* --- PC (1400px〜1540px) --- */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .attendance-container {
     padding: 70px;
@@ -222,7 +215,6 @@ body {
   }
 }
 
-/* --- ノートPC (1024px〜1366px) --- */
 @media screen and (max-width: 1366px) {
   .date {
     font-size: 32px;
@@ -238,7 +230,6 @@ body {
   }
 }
 
-/* --- タブレット (768px〜850px) --- */
 @media screen and (min-width: 768px) and (max-width: 850px) {
   .attendance-container {
     padding: 40px;
@@ -259,7 +250,6 @@ body {
   }
 }
 
-/* --- スマホ (〜767px) --- */
 @media screen and (max-width: 767px) {
   .date {
     font-size: 22px;

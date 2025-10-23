@@ -53,10 +53,10 @@ php artisan migrate --seed
 ```bash
 docker-compose down
 docker volume ls
-#残っているボリュームを削除してから再ビルド。残ってなければ、そのまま再ビルド。
-docker volume rm <プロジェクト名>_db_data
+# 残っているボリュームがあれば削除してから再ビルド。
+# 例）time-card_db_data が表示された場合のみ削除：
+# docker volume rm time-card_db_data
 docker-compose up -d --build
-#コンテナの起動を確認
 docker ps
 ```
 ※これでマイグレーションとデータ投入は完了です。
@@ -71,7 +71,7 @@ Seeder によって以下のユーザーが登録済みです。ログイン確�
 | パスワード | password123 |
 
 管理者ログインURL  
-👉 [http://localhost/admin/login](http://localhost/admin/login)
+👉 [http://localhost/admin/login]
 
 ### 🧍‍♀️ 一般ユーザーアカウント
 | No | 名前 | メールアドレス | パスワード |
@@ -89,7 +89,7 @@ Seeder によって以下のユーザーが登録済みです。ログイン確�
 
 ---
 
-7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost）
+7.  アクセス時に Permission denied エラーが出る場合は以下を実行してください。（http://localhost/login）
 ```bash
 docker-compose exec php bash
 chown -R www-data:www-data storage bootstrap/cache
@@ -152,7 +152,7 @@ php artisan config:clear
 ![ER図](src/docs/er-diagram-v1.png)
 
 ## URL
-- 開発環境：http://localhost
+- 開発環境：http://localhost/login
 - phpMyAdmin: http://localhost:8080
 - MailHog: http://localhost:8025
 
