@@ -32,9 +32,6 @@ class AdminAttendanceDetailTest extends TestCase
     ]);
   }
 
-  /**
-   * 出勤 > 退勤 の場合にエラーになること
-   */
   public function test_clock_in_is_later_than_clock_out_should_fail()
   {
     $response = $this->actingAs($this->admin, 'admin')->put(
@@ -58,9 +55,6 @@ class AdminAttendanceDetailTest extends TestCase
     );
   }
 
-  /**
-   * 休憩開始が退勤より後の場合にエラーになること
-   */
   public function test_break_start_is_later_than_clock_out_should_fail()
   {
     $response = $this->actingAs($this->admin, 'admin')->put(
@@ -84,9 +78,6 @@ class AdminAttendanceDetailTest extends TestCase
     );
   }
 
-  /**
-   * 休憩終了が退勤より後の場合にエラーになること
-   */
   public function test_break_end_is_later_than_clock_out_should_fail()
   {
     $response = $this->actingAs($this->admin, 'admin')->put(
@@ -110,9 +101,6 @@ class AdminAttendanceDetailTest extends TestCase
     );
   }
 
-  /**
-   * 備考未入力でエラーになること
-   */
   public function test_note_is_required_should_fail()
   {
     $response = $this->actingAs($this->admin, 'admin')->put(
@@ -125,7 +113,7 @@ class AdminAttendanceDetailTest extends TestCase
         'breaks' => [
           ['start' => '12:00', 'end' => '13:00']
         ],
-        'note' => '' // 未入力
+        'note' => ''
       ]
     );
 
@@ -136,9 +124,6 @@ class AdminAttendanceDetailTest extends TestCase
     );
   }
 
-  /**
-   * 正常データで更新成功すること
-   */
   public function test_valid_data_should_pass_validation()
   {
     $response = $this->actingAs($this->admin, 'admin')->put(
@@ -156,6 +141,6 @@ class AdminAttendanceDetailTest extends TestCase
     );
 
     $response->assertSessionHasNoErrors();
-    $response->assertStatus(303); // リダイレクト(303 See Other)
+    $response->assertStatus(303);
   }
 }

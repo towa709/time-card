@@ -1,99 +1,93 @@
 body {
   background-color: #ffffff;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .login-container {
-  margin: 80px auto;
-  padding: 60px 50px;
+  width: 100%;
+  max-width: 680px;
+  margin: 120px auto;
+  padding: 60px 40px;
   background-color: #fff;
   border-radius: 8px;
   text-align: center;
-  width: 100%;
-  max-width: 1512px;
 }
 
 .login-title {
   font-size: 36px;
-  margin-top: -65px;
-  margin-bottom: 40px;
   font-weight: bold;
+  margin-bottom: 60px;
+  color: #000;
 }
 
-.login-form .form-group {
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.form-group {
   width: 100%;
   max-width: 680px;
-  margin-bottom: 32px;
-  text-align: center;
-  margin-left: 340px;
+  text-align: left;
 }
 
 .login-form label {
   display: block;
-  font-size: 24px;
-  margin-bottom: 10px;
-  max-width: 900px;
-  margin-left: 5px;
+  font-size: 20px;
   font-weight: bold;
-  text-align: left;
+  margin-bottom: 10px;
 }
 
 .login-form input {
   width: 100%;
-  max-width: 680px;
-  margin: 0 auto;
   height: 60px;
-  display: block;
-  padding: 16px 18px;
+  padding: 16px;
   font-size: 18px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .error-message {
   color: red;
   font-size: 14px;
   margin-top: 6px;
-  margin-left: 5px;
-  text-align: left;
 }
 
 .error-center {
-  margin-top: 12px;
+  text-align: center;
   color: red;
   font-size: 14px;
-  text-align: center;
+  margin-top: 15px;
 }
 
 .login-button {
   width: 100%;
   max-width: 680px;
-  margin: 0 auto;
   height: 60px;
-  padding: 16px;
-  font-size: 20px;
   background-color: #000;
   color: #fff;
+  font-size: 20px;
+  font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
-  margin-left: -10px;
-  margin-top: 60px;
+  margin-top: 40px;
+  transition: 0.2s;
 }
 
 .login-button:hover {
   opacity: 0.9;
 }
 
-@media screen and (max-width: 1512px) {
-  .login-container {
-    max-width: 800px;
-  }
-}
-
+/* -------------------------
+   レスポンシブ対応
+------------------------- */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .login-container {
-    max-width: 650px;
+    max-width: 680px;
     padding: 70px 60px;
   }
 
@@ -103,38 +97,17 @@ body {
 
   .login-form input {
     font-size: 20px;
-    padding: 16px;
   }
 
   .login-button {
     font-size: 22px;
-    padding: 18px;
   }
 }
 
-@media screen and (max-width: 1366px) {
-  .login-container {
-    max-width: 650px;
-    padding: 40px;
-  }
-
-  .login-title {
-    font-size: 30px;
-  }
-
-  .login-form input {
-    font-size: 16px;
-  }
-
-  .login-button {
-    font-size: 18px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 850px) {
+@media screen and (max-width: 1024px) {
   .login-container {
     max-width: 90%;
-    padding: 40px;
+    padding: 40px 30px;
   }
 
   .login-title {
@@ -143,21 +116,34 @@ body {
 
   .login-form input {
     font-size: 16px;
-    padding: 12px;
   }
 
   .login-button {
     font-size: 18px;
-    padding: 14px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .login-container {
+    max-width: 95%;
     padding: 20px;
   }
 
   .login-title {
-    font-size: 20px;
+    font-size: 22px;
+  }
+
+  .login-form label {
+    font-size: 16px;
+  }
+
+  .login-form input {
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .login-button {
+    height: 50px;
+    font-size: 16px;
   }
 }

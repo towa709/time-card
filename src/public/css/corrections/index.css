@@ -105,51 +105,128 @@ body {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 1512px) {
+/* =========================
+   レスポンシブ対応
+========================= */
+
+/* PC（1400〜1540px） */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
     font-size: 30px;
+    margin-left: 140px;
   }
 
-  .attendance-detail-card {
-    padding: 24px;
+  .tab-nav {
+    max-width: 960px;
+    gap: 80px;
+  }
+
+  .tab-nav::after {
+    width: 1000px;
+    right: -40px;
+  }
+
+  .correction-table {
+    max-width: 1000px;
+  }
+
+  .correction-table thead th,
+  .correction-table tbody td {
+    font-size: 15px;
   }
 }
 
+/* ノートPC（〜1366px） */
 @media screen and (max-width: 1366px) {
   .page-title {
     font-size: 26px;
+    margin-left: 120px;
   }
 
-  .attendance-detail-card {
-    max-width: 100%;
+  .tab-nav {
+    max-width: 900px;
+    gap: 70px;
+  }
+
+  .tab-nav::after {
+    width: 950px;
+    right: -30px;
+  }
+
+  .correction-table {
+    max-width: 950px;
   }
 }
 
-@media screen and (max-width: 1023px) {
+/* タブレット（〜1024px） */
+@media screen and (max-width: 1024px) {
   .page-title {
-    font-size: 22px;
+    font-size: 24px;
+    margin-left: 0;
     text-align: center;
   }
 
-  .attendance-detail-card {
-    padding: 20px;
+  .tab-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 90%;
+  }
+
+  .tab-nav::after {
+    display: none;
+  }
+
+  .correction-table {
+    max-width: 90%;
+    font-size: 14px;
   }
 }
 
+/* スマホ（〜767px） */
 @media screen and (max-width: 767px) {
   .page-title {
     font-size: 20px;
     text-align: center;
     border-left: none;
     padding-left: 0;
+    margin-left: 0;
   }
 
-  .attendance-detail-card {
-    padding: 15px;
+  .tab-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 0;
   }
 
-  .attendance-detail-table th,
-  .attendance-detail-table td {
-    font-size: 14px;
+  .tab-nav::after {
+    display: none;
+  }
+
+  .correction-table {
+    width: 100%;
+    max-width: 95%;
+    font-size: 13px;
+    box-shadow: none;
+  }
+
+  .correction-table thead {
+    display: none;
+  }
+
+  .correction-table tbody td {
+    display: block;
+    text-align: left;
+    padding: 8px 6px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .correction-table tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 6px 8px;
   }
 }

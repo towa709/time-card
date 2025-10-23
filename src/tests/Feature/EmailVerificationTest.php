@@ -19,7 +19,6 @@ class EmailVerificationTest extends TestCase
   {
     Notification::fake();
 
-    // 通常の create ではイベントが発火しないため、明示的に通知を送信
     $user = User::factory()->create([
       'email_verified_at' => null,
     ]);
@@ -40,7 +39,6 @@ class EmailVerificationTest extends TestCase
 
     $response->assertStatus(200);
 
-    // 「認証」文言を広く検出（<a>タグ内でもOK）
     $response->assertSee('認証', false);
   }
 
@@ -59,7 +57,6 @@ class EmailVerificationTest extends TestCase
 
     $response = $this->actingAs($user)->get($verificationUrl);
 
-    // 実際の挙動に合わせて `/attendance` に修正
     $response->assertRedirect('/attendance');
     $this->assertNotNull($user->fresh()->email_verified_at);
   }

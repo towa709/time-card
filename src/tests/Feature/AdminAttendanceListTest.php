@@ -13,25 +13,18 @@ class AdminAttendanceListTest extends TestCase
 {
   use RefreshDatabase;
 
-  /**
-   * ① 管理者が勤怠一覧を開いた際、現在日付が表示される
-   */
   public function test_it_shows_current_date_by_default()
   {
     $admin = Admin::factory()->create();
     $this->actingAs($admin, 'admin');
 
     $today = Carbon::today();
-    // ✅ デフォルトは date パラメータなし
     $response = $this->get('/admin/attendances/list');
 
     $response->assertStatus(200)
       ->assertSee($today->format('Y年n月j日'));
   }
 
-  /**
-   * ② 前日ボタン押下時、前日の勤怠情報が表示される
-   */
   public function test_it_shows_previous_day_attendance()
   {
     $admin = Admin::factory()->create();
@@ -45,25 +38,18 @@ class AdminAttendanceListTest extends TestCase
       ->assertSee($yesterday->format('Y年n月j日'));
   }
 
-  /**
-   * ③ 翌日ボタン押下時、翌日の勤怠情報が表示される
-   */
   public function test_it_shows_next_day_attendance()
   {
     $admin = Admin::factory()->create();
     $this->actingAs($admin, 'admin');
 
     $tomorrow = Carbon::tomorrow();
-    // ✅ クエリパラメータで指定
     $response = $this->get('/admin/attendances/list?date=' . $tomorrow->toDateString());
 
     $response->assertStatus(200)
       ->assertSee($tomorrow->format('Y年n月j日'));
   }
 
-  /**
-   * ④ 勤怠一覧に全ユーザーの勤怠情報が表示される
-   */
   public function test_all_users_attendance_are_loaded()
   {
     $admin = Admin::factory()->create();

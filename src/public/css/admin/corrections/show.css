@@ -207,47 +207,82 @@ body {
   color: #333;
 }
 
-@media screen and (max-width: 1512px) {
+/* =======================================
+   修正ボタン固定＋レスポンシブ
+======================================= */
+
+.form-footer {
+  position: relative;
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0;
+}
+
+.btn-submit {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  opacity: 0.85;
+}
+
+/* スマホ・タブレット時は固定解除 */
+@media screen and (max-width: 1024px) {
+  .form-footer {
+    position: static;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .btn-submit {
+    position: static;
+    width: 100%;
+    font-size: 18px;
+    padding: 12px;
+  }
+}
+
+/* PC対応 */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
-    font-size: 30px;
+    font-size: 33px;
+    margin-left: 220px;
   }
 
   .attendance-detail-card {
-    padding: 24px;
+    max-width: 850px;
+    margin-left: 220px;
   }
 }
 
 @media screen and (max-width: 1366px) {
   .page-title {
-    font-size: 26px;
-  }
-
-  .attendance-detail-card {
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .page-title {
-    font-size: 22px;
-    text-align: center;
-  }
-
-  .attendance-detail-card {
-    padding: 20px;
+    font-size: 30px;
+    margin-left: 180px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .page-title {
-    font-size: 20px;
-    text-align: center;
+    font-size: 22px;
     border-left: none;
-    padding-left: 0;
+    text-align: center;
+    margin: 0 auto;
   }
 
   .attendance-detail-card {
-    padding: 15px;
+    padding: 20px;
   }
 
   .attendance-detail-table th,

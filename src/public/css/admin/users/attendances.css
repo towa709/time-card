@@ -189,79 +189,97 @@ body {
   background-color: #333;
 }
 
-@media screen and (max-width: 1512px) {
-  .time {
-    font-size: 80px;
-  }
-
-  .btn {
-    font-size: 32px;
-    min-width: 200px;
-  }
-}
+/* =======================================
+   レスポンシブ最適化＋共通調整
+======================================= */
 
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
-  .attendance-container {
-    padding: 70px;
+  .page-title {
+    font-size: 30px;
+    margin-left: 130px;
   }
 
-  .time {
-    font-size: 80px;
-  }
-
-  .btn {
-    font-size: 26px;
-    min-width: 220px;
+  .attendance-table th,
+  .attendance-table td {
+    font-size: 17px;
   }
 }
 
 @media screen and (max-width: 1366px) {
-  .date {
-    font-size: 32px;
+  .page-title {
+    font-size: 28px;
+    margin-left: 100px;
   }
 
-  .time {
-    font-size: 65px;
+  .attendance-table {
+    max-width: 950px;
   }
 
-  .btn {
-    font-size: 24px;
-    min-width: 160px;
+  .attendance-table th,
+  .attendance-table td {
+    font-size: 16px;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 850px) {
-  .attendance-container {
-    padding: 40px;
-  }
-
-  .date {
+@media screen and (max-width: 1024px) {
+  .page-title {
+    text-align: center;
     font-size: 24px;
+    border-left: none;
+    margin: 0 auto 20px auto;
   }
 
-  .time {
-    font-size: 55px;
+  .month-nav {
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .btn {
-    font-size: 20px;
-    min-width: 160px;
-    padding: 14px 0;
+  .attendance-table {
+    width: 90%;
+  }
+
+  .form-footer {
+    justify-content: center;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .date {
-    font-size: 22px;
+  .page-title {
+    font-size: 20px;
+    text-align: center;
+    border-left: none;
   }
 
-  .time {
-    font-size: 36px;
+  .attendance-table thead {
+    display: none;
   }
 
-  .btn {
-    font-size: 18px;
-    min-width: 120px;
-    padding: 12px 0;
+  .attendance-table tbody tr {
+    display: block;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    padding: 10px;
+  }
+
+  .attendance-table tbody td {
+    display: block;
+    text-align: left;
+    border: none;
+  }
+
+  .attendance-table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .btn-submit,
+  .csv-button {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
   }
 }

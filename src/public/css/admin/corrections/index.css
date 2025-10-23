@@ -105,37 +105,60 @@ body {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 1512px) {
+/* =========================
+   レスポンシブ対応
+========================= */
+
+/* PC（1400〜1540px） */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
     font-size: 30px;
+    margin-left: 120px;
   }
 
-  .attendance-detail-card {
-    padding: 24px;
+  .correction-table {
+    max-width: 1050px;
   }
 }
 
+/* ノートPC（〜1366px） */
 @media screen and (max-width: 1366px) {
   .page-title {
     font-size: 26px;
+    margin-left: 100px;
   }
 
-  .attendance-detail-card {
-    max-width: 100%;
+  .correction-table {
+    max-width: 950px;
+  }
+
+  .correction-table th,
+  .correction-table td {
+    font-size: 14px;
   }
 }
 
-@media screen and (max-width: 1023px) {
+/* タブレット（〜1024px） */
+@media screen and (max-width: 1024px) {
   .page-title {
-    font-size: 22px;
+    font-size: 24px;
     text-align: center;
+    margin-left: 0;
+    border-left: none;
   }
 
-  .attendance-detail-card {
-    padding: 20px;
+  .tab-nav {
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .correction-table {
+    max-width: 90%;
   }
 }
 
+/* スマホ（〜767px） */
 @media screen and (max-width: 767px) {
   .page-title {
     font-size: 20px;
@@ -144,12 +167,40 @@ body {
     padding-left: 0;
   }
 
-  .attendance-detail-card {
-    padding: 15px;
+  .tab-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
-  .attendance-detail-table th,
-  .attendance-detail-table td {
-    font-size: 14px;
+  .correction-table {
+    width: 95%;
+    font-size: 13px;
+  }
+
+  .correction-table thead {
+    display: none;
+  }
+
+  .correction-table tbody tr {
+    display: block;
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    padding: 10px;
+  }
+
+  .correction-table td {
+    display: block;
+    text-align: left;
+    border: none;
+  }
+
+  .correction-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #757575;
+    display: block;
+    margin-bottom: 4px;
   }
 }

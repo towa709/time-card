@@ -11,16 +11,11 @@ use Illuminate\Support\Carbon;
 class LeaveWorkTest extends TestCase
 {
   use RefreshDatabase;
-
-  /** 
-   * 退勤ボタンが正しく機能する 
-   */
   public function test_user_can_end_work()
   {
     $user = User::factory()->create();
     $this->actingAs($user);
 
-    // 出勤済みデータを用意
     $attendance = Attendance::factory()->create([
       'user_id' => $user->id,
       'work_date' => Carbon::today()->toDateString(),
@@ -29,20 +24,15 @@ class LeaveWorkTest extends TestCase
       'break_time' => 60,
     ]);
 
-    // 退勤ボタン押下
     $response = $this->post(route('attendance.end'));
 
     $response->assertRedirect(route('attendance.create'));
 
-    // DB反映確認
     $attendance->refresh();
     $this->assertNotNull($attendance->clock_out, '退勤時刻が保存されていません');
     $this->assertTrue($attendance->total_work_time >= 0, '合計勤務時間が不正です');
   }
 
-  /**
-   * 勤怠一覧に退勤時刻が表示される
-   */
   public function test_attendance_list_displays_clock_out_time()
   {
     $user = User::factory()->create();
@@ -62,7 +52,6 @@ class LeaveWorkTest extends TestCase
 
     $html = $response->getContent();
 
-    // HTMLに「18:00」などが含まれているか確認
     $this->assertTrue(
       str_contains($html, '18:00') || str_contains($html, '17:59'),
       '退勤時刻が勤怠一覧に正しく表示されていません。'

@@ -12,9 +12,6 @@ class AttendanceListTest extends TestCase
 {
   use RefreshDatabase;
 
-  /**
-   * 自分の勤怠情報のみが一覧に表示される
-   */
   public function test_user_can_only_see_own_attendance_records()
   {
     $user = User::factory()->create();
@@ -43,9 +40,6 @@ class AttendanceListTest extends TestCase
     $this->assertStringNotContainsString('10:00', $html, '他人の勤怠情報が表示されています。');
   }
 
-  /**
-   * 勤怠一覧画面で現在月が表示される
-   */
   public function test_current_month_is_displayed_on_attendance_list()
   {
     $user = User::factory()->create();
@@ -56,9 +50,6 @@ class AttendanceListTest extends TestCase
     $response->assertSee(Carbon::now()->format('Y/m'), false);
   }
 
-  /**
-   * 「前月」ボタンを押すと前月の情報が表示される
-   */
   public function test_previous_month_button_displays_previous_month()
   {
     $user = User::factory()->create();
@@ -70,9 +61,6 @@ class AttendanceListTest extends TestCase
     $response->assertSee($prevMonth->format('Y/m'), false);
   }
 
-  /**
-   * 「翌月」ボタンを押すと翌月の情報が表示される
-   */
   public function test_next_month_button_displays_next_month()
   {
     $user = User::factory()->create();
@@ -84,9 +72,6 @@ class AttendanceListTest extends TestCase
     $response->assertSee($nextMonth->format('Y/m'), false);
   }
 
-  /**
-   * 「詳細」ボタンを押すと該当日の勤怠詳細ページへ遷移する
-   */
   public function test_detail_button_redirects_to_attendance_detail()
   {
     $user = User::factory()->create();
@@ -102,7 +87,6 @@ class AttendanceListTest extends TestCase
     $response = $this->get(route('attendance.index', ['month' => Carbon::today()->format('Y-m')]));
     $response->assertStatus(200);
 
-    // 詳細リンクが正しく出力されているかチェック
     $response->assertSee(route('attendance.detail', $attendance->id), false);
   }
 }

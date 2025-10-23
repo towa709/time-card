@@ -38,9 +38,7 @@
       @endif
     </div>
 
-    <div class="form-actions">
-      <button type="submit" class="login-button">管理者ログインする</button>
-    </div>
+    <button type="submit" class="login-button">管理者ログインする</button>
 
     @if ($errors->has('email') && $errors->first('email') === 'ログイン情報が登録されていません')
     <div class="error-center">{{ $errors->first('email') }}</div>

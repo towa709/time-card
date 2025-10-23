@@ -6,9 +6,9 @@ body {
 }
 
 .attendance-detail-wrapper {
-  display: block;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 40px 20px;
   background-color: #efeeec;
   min-height: calc(100vh - 80px);
@@ -20,11 +20,11 @@ body {
   margin: 20px 0 30px;
   border-left: 6px solid #000;
   padding-left: 10px;
-  margin-left: 280px;
   color: #000;
-  text-align: left;
   width: 100%;
   max-width: 1512px;
+  text-align: left;
+  margin-left: 280px;
 }
 
 .attendance-detail-card {
@@ -33,7 +33,7 @@ body {
   background: #fff;
   padding: 6px 25px;
   border-radius: 8px;
-  box-shadow: 0 1px 1px rgba(1, 1, 1, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   margin: 35px auto 10px auto;
   margin-left: 280px;
 }
@@ -61,16 +61,15 @@ body {
   width: 300px;
   font-weight: bold;
   color: #817d7d;
-  text-align: left;
+}
+
+.attendance-detail-table td {
+  color: #000;
+  font-weight: bold;
 }
 
 .name-cell {
   padding-left: 65px !important;
-}
-
-.attendance-detail-table td.date-cell {
-  letter-spacing: normal;
-
 }
 
 .date-cell {
@@ -98,6 +97,7 @@ body {
   font-weight: bold;
   width: 120px;
   margin-left: 14px;
+  text-align: center;
 }
 
 .attendance-detail-table textarea {
@@ -113,11 +113,6 @@ body {
   resize: vertical;
   min-height: 80px;
   margin-left: 14px;
-}
-
-.attendance-detail-table td {
-  color: #000;
-  font-weight: bold;
 }
 
 .time-range {
@@ -158,11 +153,11 @@ body {
 }
 
 .form-footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+  position: absolute;
+  bottom: 25px;
+  right: 735px;
+  top: 940px;
   font-weight: bold;
-  margin-right: 260px;
 }
 
 .btn-submit {
@@ -195,51 +190,108 @@ body {
   margin-left: 910px;
 }
 
-@media screen and (max-width: 1512px) {
+/* =========================
+   レスポンシブ対応
+========================= */
+
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
-    font-size: 30px;
+    font-size: 32px;
+    margin-left: 200px;
   }
 
   .attendance-detail-card {
-    padding: 24px;
+    max-width: 850px;
+    margin-left: 200px;
+  }
+
+  .attendance-detail-table th,
+  .attendance-detail-table td {
+    font-size: 18px;
+  }
+
+  .btn-submit {
+    font-size: 20px;
+    padding: 10px 26px;
+
   }
 }
 
 @media screen and (max-width: 1366px) {
   .page-title {
-    font-size: 26px;
+    font-size: 28px;
+    margin-left: 180px;
   }
 
   .attendance-detail-card {
-    max-width: 100%;
+    max-width: 800px;
+    margin-left: 180px;
+  }
+
+  .attendance-detail-table th,
+  .attendance-detail-table td {
+    font-size: 17px;
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .page-title {
-    font-size: 22px;
+    font-size: 26px;
     text-align: center;
+    margin-left: 0;
   }
 
   .attendance-detail-card {
-    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 25px;
+  }
+
+  .form-footer {
+    justify-content: center;
+    margin-right: 0;
   }
 }
 
 @media screen and (max-width: 767px) {
   .page-title {
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     border-left: none;
     padding-left: 0;
+    margin-left: 0;
   }
 
   .attendance-detail-card {
-    padding: 15px;
+    padding: 20px;
+    margin: 0 auto;
   }
 
   .attendance-detail-table th,
   .attendance-detail-table td {
     font-size: 14px;
+    padding: 16px 8px;
+  }
+
+  .attendance-detail-table input[type="text"],
+  .attendance-detail-table textarea {
+    width: 100%;
+    font-size: 14px;
+    margin: 4px 0;
+  }
+
+  .time-range {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-footer {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .btn-submit {
+    width: 100%;
+    font-size: 18px;
   }
 }

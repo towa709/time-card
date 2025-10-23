@@ -34,7 +34,6 @@ class AdminUserInfoTest extends TestCase
     $admin = Admin::factory()->create();
     $user = User::factory()->create();
 
-    // ✅ テストが安定するように日付を固定
     $today = Carbon::create(2025, 10, 1, 0, 0, 0);
 
     $attendance = Attendance::factory()->create([
