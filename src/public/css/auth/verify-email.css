@@ -16,6 +16,16 @@ body {
   margin-bottom: 40px;
 }
 
+.verify-message h2 {
+  line-height: 1.8;
+  color: #333;
+  margin: 0 auto 40px;
+  word-break: break-word;
+  white-space: normal;
+  text-align: center;
+  max-width: 90%;
+}
+
 .verify-button {
   display: inline-block;
   width: 220px;
@@ -55,6 +65,7 @@ body {
   font-weight: bold;
 }
 
+/* ========= PC〜タブレット ========= */
 @media screen and (max-width: 1366px) {
   .verify-container {
     max-width: 700px;
@@ -65,6 +76,12 @@ body {
     font-size: 14px;
   }
 
+  .verify-message h2 {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 90%;
+  }
+
   .verify-button {
     width: 680px;
     font-size: 17px;
@@ -72,6 +89,7 @@ body {
   }
 }
 
+/* ========= タブレット小〜スマホ ========= */
 @media screen and (max-width: 850px) {
   .verify-container {
     max-width: 90%;
@@ -80,6 +98,12 @@ body {
 
   .verify-message {
     font-size: 14px;
+  }
+
+  .verify-message h2 {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 95%;
   }
 
   .verify-button {
@@ -95,6 +119,7 @@ body {
   }
 }
 
+/* ========= スマホ ========= */
 @media screen and (max-width: 767px) {
   .verify-container {
     margin: 100px auto;
@@ -104,6 +129,13 @@ body {
   .verify-message {
     font-size: 13px;
     line-height: 1.6;
+  }
+
+  .verify-message h2 {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 96%;
+    margin-bottom: 30px;
   }
 
   .verify-button {

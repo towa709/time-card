@@ -1,6 +1,6 @@
 body {
-  background-color: #efeeec;
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  background-color: #e7e7e7;
+  font-family: 'Noto Sans JP', sans-serif;
   color: #333;
   margin: 0;
 }
@@ -9,89 +9,48 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 90px 28px;
-  border-radius: 8px;
-}
-
-.attendance-list-container {
-  max-width: 1110px;
-  width: 100%;
+  padding: 100px 20px;
 }
 
 .page-title {
   font-size: 35px;
   font-weight: bold;
   color: #000;
-  border-left: 8px solid #000;
+  border-left: 6px solid #000;
   padding-left: 10px;
-  margin-bottom: 30px;
-  margin-right: 740px;
-  width: fit-content;
-  line-height: 1.2;
+  margin-bottom: 40px;
+  align-self: flex-start;
+  margin-left: calc((100% - 900px) / 2);
 }
 
 .month-nav-container {
-  max-width: 1110px;
   width: 100%;
-  background: #fff;
-  padding: 15px 25px;
+  max-width: 900px;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 1px 1px rgba(1, 1, 1, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 15px 30px;
   margin-bottom: 40px;
-  margin-top: 15px;
-  margin-left: 5px
 }
 
 .month-nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
-  width: 100%;
+  align-items: center;
 }
 
 .nav-button {
   color: #757575;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
-  flex: 0 0 auto;
-}
-
-.month-picker {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  position: absolute;
-  justify-content: center;
-  left: 50px;
-  transform: translateX(-50%);
-  gap: 8px;
-}
-
-.nav-button.prev {
-  left: 20px;
-}
-
-.nav-button.next {
-  right: 20px;
-}
-
-.month-picker {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
 }
 
 .calendar-icon {
   width: 22px;
   height: 22px;
-  cursor: pointer;
   vertical-align: middle;
-  position: relative;
-  top: -3px
+  cursor: pointer;
+  margin-right: 6px;
 }
 
 .current-month {
@@ -100,44 +59,32 @@ body {
   color: #000;
 }
 
+.attendance-list-container {
+  width: 100%;
+  max-width: 900px;
+}
+
 .attendance-table {
-  max-width: 1110px;
   width: 100%;
   border-collapse: collapse;
   border-radius: 8px;
   overflow: hidden;
+  background-color: #fff;
   text-align: center;
-  margin-bottom: -60px;
-  margin-left: 5px;
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-  table-layout: fixed;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .attendance-table thead th {
-  background-color: #ffffff;
+  font-size: 18px;
   font-weight: bold;
   color: #757575;
-  font-size: 18px;
-  text-align: center;
-  padding: 10px 8px;
   border-bottom: 4px solid #ddd;
-}
-
-.attendance-table th,
-.attendance-table td,
-.attendance-table td a {
-  padding: 12px 10px;
-  text-align: center;
-  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-  font-size: 18px;
-  color: #000000;
-  font-weight: bold;
-  border: none;
+  padding: 10px 0;
+  background: #fff;
 }
 
 .attendance-table td {
-  background-color: #ffffff;
-  padding: 14px 8px;
+  padding: 14px 0;
   border-bottom: 2px solid #e0e0e0;
   font-size: 18px;
   font-weight: bold;
@@ -163,136 +110,163 @@ body {
   color: #000000;
 }
 
-/* =========================
+/* ==========================
    レスポンシブ対応
-========================= */
+========================== */
 
-/* PC（1400〜1540px） */
+/* PC幅（1400〜1540px） */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .attendance-list-wrapper {
     padding: 80px 20px;
   }
 
-  .page-title {
-    font-size: 33px;
-    margin-right: 680px;
-  }
-
-  .month-nav-container {
-    max-width: 1080px;
-    padding: 14px 24px;
-  }
-
-  .attendance-table {
-    max-width: 1080px;
-  }
-
-  .attendance-table th,
-  .attendance-table td {
-    font-size: 17px;
+  .attendance-table td,
+  .attendance-table th {
+    font-size: 18px;
   }
 }
 
-/* ノートPC（〜1366px） */
-@media screen and (max-width: 1366px) {
-  .page-title {
-    font-size: 30px;
-    margin-right: 640px;
-  }
-
-  .month-nav-container {
-    max-width: 1000px;
-    padding: 14px 22px;
-  }
-
-  .attendance-table {
-    max-width: 1000px;
-  }
-
-  .attendance-table th,
-  .attendance-table td {
-    font-size: 16px;
-  }
-}
-
-/* タブレット（〜1024px） */
+/* タブレット */
 @media screen and (max-width: 1024px) {
-  .page-title {
-    font-size: 26px;
-    margin: 0 auto 20px auto;
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
+  .attendance-list-wrapper {
+    padding: 60px 10px;
   }
 
-  .month-nav-container {
-    max-width: 90%;
+  .page-title {
+    font-size: 28px;
     margin-left: 0;
     text-align: center;
   }
 
-  .month-nav {
-    grid-template-columns: 1fr;
-    row-gap: 10px;
+  .attendance-list-container {
+    max-width: 95%;
   }
 
-  .attendance-table {
-    max-width: 90%;
-    font-size: 15px;
+  .attendance-table td,
+  .attendance-table th {
+    font-size: 16px;
   }
 }
 
-/* スマホ（〜767px） */
+/* スマホ */
 @media screen and (max-width: 767px) {
+  body {
+    background-color: #e7e7e7;
+  }
+
+  .attendance-list-wrapper {
+    padding: 40px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .page-title {
     font-size: 22px;
     text-align: center;
-    margin-right: 0;
+    margin-left: 0;
     border-left: none;
-    padding-left: 0;
+    margin-bottom: 25px;
   }
 
   .month-nav-container {
+    width: 100%;
     max-width: 95%;
-    padding: 10px 14px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    margin: 0 auto 30px auto;
+  }
+
+  .month-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .attendance-list-container {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
   }
 
   .attendance-table {
     width: 100%;
-    max-width: 95%;
-    font-size: 13px;
-  }
-
-  .attendance-table thead {
-    display: none;
-  }
-
-  .attendance-table tbody tr {
-    display: block;
-    margin-bottom: 20px;
-    background-color: #fff;
+    max-width: 900px;
+    border-collapse: collapse;
     border-radius: 8px;
-    padding: 10px 0;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
   }
 
-  .attendance-table tbody td {
-    display: block;
-    text-align: left;
-    padding: 8px 14px;
-    border: none;
+  .attendance-table thead th,
+  .attendance-table td {
+    font-size: 14px;
+    padding: 10px 4px;
+    text-align: center;
+    white-space: nowrap;
   }
 
-  .attendance-table tbody td::before {
-    content: attr(data-label);
-    display: block;
+  .attendance-table th:nth-child(1),
+  .attendance-table td:nth-child(1) {
+    width: 25%;
+    text-align: center;
+  }
+
+  .attendance-table th:nth-child(2),
+  .attendance-table td:nth-child(2),
+  .attendance-table th:nth-child(3),
+  .attendance-table td:nth-child(3),
+  .attendance-table th:nth-child(4),
+  .attendance-table td:nth-child(4),
+  .attendance-table th:nth-child(5),
+  .attendance-table td:nth-child(5) {
+    width: 14%;
+    text-align: center;
+  }
+
+  .attendance-table th:nth-child(6),
+  .attendance-table td:nth-child(6) {
+    width: 15%;
+    text-align: center;
+  }
+
+  .attendance-table thead th {
+    color: #757575;
     font-weight: bold;
-    color: #555;
-    margin-bottom: 2px;
+    border-bottom: 3px solid #ddd;
+    background: #fff;
+  }
+
+  .attendance-table td {
+    border-bottom: 2px solid #e0e0e0;
+    color: #757575;
+    font-weight: bold;
+  }
+
+  .attendance-table tbody tr:last-child td {
+    border-bottom: none;
   }
 
   .detail-button {
     display: inline-block;
-    padding: 5px 12px;
-    font-size: 14px;
+    padding: 4px 10px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    font-weight: bold;
+  }
+
+  .detail-button:hover {
+    opacity: 0.8;
   }
 }

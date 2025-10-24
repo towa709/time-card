@@ -1,30 +1,31 @@
 body {
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   color: #333;
   margin: 0;
 }
 
 .attendance-detail-wrapper {
-  display: block;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 40px 20px;
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   min-height: calc(100vh - 80px);
 }
 
 .page-title {
+  display: inline-flex;
+  align-items: center;
   font-size: 35px;
   font-weight: bold;
   margin: 20px 0 30px;
-  border-left: 8px solid #000;
+  border-left: 6px solid #000;
   padding-left: 10px;
-  margin-left: 280px;
   color: #000;
-  text-align: left;
-  width: fit-content;
-  line-height: 1.2;
+  width: auto;
+  margin-left: 280px;
+  margin-bottom: 10px;
 }
 
 .attendance-detail-card {
@@ -61,16 +62,15 @@ body {
   width: 300px;
   font-weight: bold;
   color: #817d7d;
-  text-align: left;
+}
+
+.attendance-detail-table td {
+  color: #000;
+  font-weight: bold;
 }
 
 .name-cell {
   padding-left: 65px !important;
-}
-
-.attendance-detail-table td.date-cell {
-  letter-spacing: normal;
-
 }
 
 .date-cell {
@@ -98,6 +98,7 @@ body {
   font-weight: bold;
   width: 120px;
   margin-left: 14px;
+  text-align: center;
 }
 
 .attendance-detail-table textarea {
@@ -113,11 +114,6 @@ body {
   resize: vertical;
   min-height: 80px;
   margin-left: 14px;
-}
-
-.attendance-detail-table td {
-  color: #000;
-  font-weight: bold;
 }
 
 .time-range {
@@ -160,27 +156,33 @@ body {
 .form-footer {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  padding-right: 40px;
   margin-top: 20px;
-  font-weight: bold;
-  margin-right: 260px;
+  margin-bottom: 60px;
+  position: relative;
 }
 
-.btn-submit {
+.btn-approve {
   background-color: #000;
   color: #fff;
   border: none;
-  padding: 10px 28px;
+  width: 130px;
+  height: 50px;
   border-radius: 6px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.btn-submit:hover {
+.btn-approve:hover {
   opacity: 0.8;
 }
 
-.btn-submit[disabled] {
+.btn-approve[disabled] {
   background-color: #b3b3b3;
   cursor: not-allowed;
   opacity: 0.9;
@@ -201,92 +203,197 @@ body {
   margin-left: 910px;
 }
 
-.approve-msg {
-  font-size: 16px;
-  margin-left: 20px;
-  color: #333;
-}
+/* =========================
+   レスポンシブ対応
+========================= */
 
-/* =======================================
-   修正ボタン固定＋レスポンシブ
-======================================= */
-
-.form-footer {
-  position: relative;
-  margin-top: 40px;
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 0;
-}
-
-.btn-submit {
-  position: absolute;
-  right: 30px;
-  bottom: 20px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 28px;
-  border-radius: 6px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-submit:hover {
-  opacity: 0.85;
-}
-
-/* スマホ・タブレット時は固定解除 */
-@media screen and (max-width: 1024px) {
-  .form-footer {
-    position: static;
-    justify-content: center;
-    margin-top: 30px;
-  }
-
-  .btn-submit {
-    position: static;
-    width: 100%;
-    font-size: 18px;
-    padding: 12px;
-  }
-}
-
-/* PC対応 */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
-    font-size: 33px;
-    margin-left: 220px;
+    font-size: 32px;
+    margin-left: 200px;
   }
 
   .attendance-detail-card {
     max-width: 850px;
-    margin-left: 220px;
+    margin-left: 200px;
+  }
+
+  .attendance-detail-table th,
+  .attendance-detail-table td {
+    font-size: 18px;
+  }
+
+  .btn-approve {
+    font-size: 20px;
+    padding: 10px 26px;
   }
 }
 
 @media screen and (max-width: 1366px) {
   .page-title {
-    font-size: 30px;
+    font-size: 28px;
     margin-left: 180px;
+  }
+
+  .attendance-detail-card {
+    max-width: 800px;
+    margin-left: 180px;
+  }
+
+  .attendance-detail-table th,
+  .attendance-detail-table td {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page-title {
+    font-size: 26px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .attendance-detail-card {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 25px;
+  }
+
+  .form-footer {
+    justify-content: center;
+    margin-right: 0;
   }
 }
 
 @media screen and (max-width: 767px) {
+  .attendance-detail-wrapper {
+    align-items: center;
+    padding: 20px 10px 80px;
+  }
+
   .page-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 22px;
-    border-left: none;
-    text-align: center;
-    margin: 0 auto;
+    border-left: 4px solid #000;
+    padding-left: 8px;
+    margin: 20px auto 30px auto;
+    color: #000;
   }
 
   .attendance-detail-card {
-    padding: 20px;
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 20px 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .date-cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  .date-cell .year,
+  .date-cell .month,
+  .date-cell .day {
+    margin: 0;
+    transform: none;
+    display: inline;
+  }
+
+  .date-cell span {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .attendance-detail-table th,
   .attendance-detail-table td {
     font-size: 14px;
+    padding: 12px 8px;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .attendance-detail-table th {
+    margin-top: 10px;
+  }
+
+  .attendance-detail-table input[type="text"],
+  .attendance-detail-table textarea {
+    width: 100%;
+    font-size: 14px;
+    margin: 6px 0;
+    padding: 8px;
+  }
+
+  .time-range {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .tilde {
+    display: inline-block;
+    margin: 0 4px;
+  }
+
+  .form-footer {
+    position: static;
+    margin: 30px auto 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-approve {
+    width: 100%;
+    max-width: 240px;
+    font-size: 16px;
+    padding: 12px 0;
+    border-radius: 8px;
+  }
+
+  .pending-message {
+    margin: 30px auto 0;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .form-footer {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .btn-approve {
+    width: 120px;
+    height: 46px;
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .form-footer {
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .btn-approve {
+    width: 100%;
+    max-width: 240px;
+    height: 48px;
+    font-size: 16px;
+    border-radius: 8px;
   }
 }

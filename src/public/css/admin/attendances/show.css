@@ -1,30 +1,31 @@
 body {
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   color: #333;
   margin: 0;
 }
 
 .attendance-detail-wrapper {
-  display: block;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 40px 20px;
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   min-height: calc(100vh - 80px);
 }
 
 .page-title {
+  display: inline-flex;
+  align-items: center;
   font-size: 35px;
   font-weight: bold;
   margin: 20px 0 30px;
-  border-left: 8px solid #000;
+  border-left: 6px solid #000;
   padding-left: 10px;
-  margin-left: 280px;
   color: #000;
-  text-align: left;
-  width: fit-content;
-  line-height: 1.2;
+  width: auto;
+  margin-left: 280px;
+  margin-bottom: 10px;
 }
 
 .attendance-detail-card {
@@ -33,7 +34,7 @@ body {
   background: #fff;
   padding: 6px 25px;
   border-radius: 8px;
-  box-shadow: 0 1px 1px rgba(1, 1, 1, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   margin: 35px auto 10px auto;
   margin-left: 280px;
 }
@@ -61,7 +62,11 @@ body {
   width: 300px;
   font-weight: bold;
   color: #817d7d;
-  text-align: left;
+}
+
+.attendance-detail-table td {
+  color: #000;
+  font-weight: bold;
 }
 
 .name-cell {
@@ -93,6 +98,7 @@ body {
   font-weight: bold;
   width: 120px;
   margin-left: 14px;
+  text-align: center;
 }
 
 .attendance-detail-table textarea {
@@ -108,11 +114,6 @@ body {
   resize: vertical;
   min-height: 80px;
   margin-left: 14px;
-}
-
-.attendance-detail-table td {
-  color: #000;
-  font-weight: bold;
 }
 
 .time-range {
@@ -155,21 +156,26 @@ body {
 .form-footer {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  padding-right: 40px;
   margin-top: 20px;
-  font-weight: bold;
-  margin-right: 260px;
+  margin-bottom: 60px;
+  position: relative;
 }
 
 .btn-submit {
   background-color: #000;
   color: #fff;
   border: none;
-  padding: 10px 28px;
+  width: 130px;
+  height: 50px;
   border-radius: 6px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
-  margin-top: 20px;
 }
 
 .btn-submit:hover {
@@ -188,24 +194,22 @@ body {
   color: red;
   font-size: 16px;
   margin-top: 20px;
-  font-weight: normal;
-  margin-left: 890px;
+  margin-left: 910px;
 }
 
 /* =========================
    レスポンシブ対応
 ========================= */
 
-/* PC（1400〜1540px） */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
-    font-size: 33px;
-    margin-left: 220px;
+    font-size: 32px;
+    margin-left: 200px;
   }
 
   .attendance-detail-card {
     max-width: 850px;
-    margin-left: 220px;
+    margin-left: 200px;
   }
 
   .attendance-detail-table th,
@@ -216,17 +220,13 @@ body {
   .btn-submit {
     font-size: 20px;
     padding: 10px 26px;
-  }
 
-  .pending-message {
-    margin-left: 820px;
   }
 }
 
-/* ノートPC（〜1366px） */
 @media screen and (max-width: 1366px) {
   .page-title {
-    font-size: 30px;
+    font-size: 28px;
     margin-left: 180px;
   }
 
@@ -239,20 +239,13 @@ body {
   .attendance-detail-table td {
     font-size: 17px;
   }
-
-  .pending-message {
-    margin-left: 760px;
-  }
 }
 
-/* タブレット（〜1024px） */
 @media screen and (max-width: 1024px) {
   .page-title {
     font-size: 26px;
-    margin: 0 auto 20px auto;
     text-align: center;
-    border-left: none;
-    padding-left: 0;
+    margin-left: 0;
   }
 
   .attendance-detail-card {
@@ -265,59 +258,117 @@ body {
     justify-content: center;
     margin-right: 0;
   }
-
-  .pending-message {
-    margin-left: 0;
-    text-align: center;
-  }
 }
 
-/* スマホ（〜767px） */
 @media screen and (max-width: 767px) {
+  .attendance-detail-wrapper {
+    align-items: center;
+    padding: 20px 10px 80px;
+  }
+
   .page-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 22px;
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
-    margin-left: 0;
+    border-left: 4px solid #000;
+    padding-left: 8px;
+    margin: 20px auto 30px auto;
+    color: #000;
   }
 
   .attendance-detail-card {
-    padding: 18px;
+    width: 100%;
+    max-width: 95%;
     margin: 0 auto;
+    padding: 20px 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .attendance-detail-table th,
   .attendance-detail-table td {
     font-size: 14px;
-    padding: 16px 8px;
+    padding: 12px 8px;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .attendance-detail-table th {
+    margin-top: 10px;
   }
 
   .attendance-detail-table input[type="text"],
   .attendance-detail-table textarea {
     width: 100%;
     font-size: 14px;
-    margin: 4px 0;
+    margin: 6px 0;
+    padding: 8px;
   }
 
   .time-range {
     flex-direction: column;
     align-items: flex-start;
+    gap: 6px;
+  }
+
+  .tilde {
+    display: inline-block;
+    margin: 0 4px;
   }
 
   .form-footer {
+    position: static;
+    margin: 30px auto 0;
+    display: flex;
     justify-content: center;
-    margin-right: 0;
+    width: 100%;
   }
 
   .btn-submit {
     width: 100%;
-    font-size: 18px;
+    max-width: 240px;
+    font-size: 16px;
+    padding: 12px 0;
+    border-radius: 8px;
   }
 
   .pending-message {
-    margin-top: 16px;
+    margin: 30px auto 0;
     text-align: center;
-    margin-left: 0;
+    font-size: 14px;
+  }
+}
+
+/* ======== タブレット ======== */
+@media screen and (max-width: 1024px) {
+  .form-footer {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .btn-submit {
+    width: 120px;
+    height: 46px;
+    font-size: 17px;
+  }
+}
+
+/* ======== スマホ ======== */
+@media screen and (max-width: 767px) {
+  .form-footer {
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .btn-submit {
+    width: 100%;
+    max-width: 240px;
+    height: 48px;
+    font-size: 16px;
+    border-radius: 8px;
   }
 }

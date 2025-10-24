@@ -102,43 +102,42 @@
 
   <div class="form-footer">
     @if($correction->status === 'pending')
-    <button type="button" id="approveButton" class="btn-submit">承認</button>
+    <button type="button" id="approveButton" class="btn-approve">承認</button>
     @else
-    <button class="btn-submit" disabled>承認済み</button>
+    <button class="btn-approve" disabled>承認済み</button>
     @endif
   </div>
-</div>
-@endsection
+  @endsection
 
-@section('scripts')
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('approveButton');
-    if (!btn) return;
+  @section('scripts')
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('approveButton');
+      if (!btn) return;
 
-    btn.addEventListener('click', async () => {
-      const id = document.querySelector('.attendance-detail-card').dataset.correctionId;
-      const token = document.querySelector('meta[name="csrf-token"]')?.content;
-      const url = `/admin/stamp_correction_request/approve/${id}`;
+      btn.addEventListener('click', async () => {
+        const id = document.querySelector('.attendance-detail-card').dataset.correctionId;
+        const token = document.querySelector('meta[name="csrf-token"]')?.content;
+        const url = `/admin/stamp_correction_request/approve/${id}`;
 
-      btn.disabled = true;
-      btn.style.backgroundColor = '#888';
-      btn.style.cursor = 'not-allowed';
+        btn.disabled = true;
+        btn.style.backgroundColor = '#888';
+        btn.style.cursor = 'not-allowed';
 
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'X-CSRF-TOKEN': token,
-            'Accept': 'application/json'
-          },
-          credentials: 'same-origin'
-        });
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'X-CSRF-TOKEN': token,
+              'Accept': 'application/json'
+            },
+            credentials: 'same-origin'
+          });
 
-      } catch (error) {
-        console.error('通信エラー:', error);
-      }
+        } catch (error) {
+          console.error('通信エラー:', error);
+        }
+      });
     });
-  });
-</script>
-@endsection
+  </script>
+  @endsection

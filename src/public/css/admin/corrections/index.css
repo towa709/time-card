@@ -1,5 +1,5 @@
 body {
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   color: #333;
   margin: 0;
@@ -112,95 +112,107 @@ body {
 /* PC（1400〜1540px） */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
-    font-size: 30px;
-    margin-left: 120px;
+    font-size: 32px;
+    margin-left: calc((100% - 850px) / 2);
   }
 
   .correction-table {
-    max-width: 1050px;
+    max-width: 850px;
   }
 }
 
 /* ノートPC（〜1366px） */
 @media screen and (max-width: 1366px) {
   .page-title {
-    font-size: 26px;
-    margin-left: 100px;
+    font-size: 28px;
+    margin-left: calc((100% - 800px) / 2);
   }
 
   .correction-table {
-    max-width: 950px;
-  }
-
-  .correction-table th,
-  .correction-table td {
-    font-size: 14px;
+    max-width: 800px;
   }
 }
 
 /* タブレット（〜1024px） */
 @media screen and (max-width: 1024px) {
   .page-title {
-    font-size: 24px;
-    text-align: center;
+    font-size: 26px;
     margin-left: 0;
-    border-left: none;
+    text-align: center;
   }
 
   .tab-nav {
     justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
+    gap: 60px;
+    max-width: 90%;
+    border-bottom: 2px solid #201e1e;
   }
 
   .correction-table {
     max-width: 90%;
+    font-size: 14px;
   }
 }
 
 /* スマホ（〜767px） */
 @media screen and (max-width: 767px) {
   .page-title {
-    font-size: 20px;
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
+    font-size: 22px;
+    text-align: left;
+    border-left: 6px solid #000;
+    padding-left: 10px;
+    margin: 20px auto 30px;
+    width: 90%;
+    max-width: 320px;
   }
 
   .tab-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 2px solid #201e1e;
+    padding-bottom: 6px;
+    width: 90%;
+    max-width: 320px;
+    border-bottom: none;
+    margin: 25px auto 30px auto;
+  }
+
+  .tab-nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 280px;
+    height: 2px;
+    background-color: #201e1e;
   }
 
   .correction-table {
-    width: 95%;
+    width: 100%;
+    max-width: 95%;
     font-size: 13px;
+    box-shadow: none;
   }
 
   .correction-table thead {
     display: none;
   }
 
-  .correction-table tbody tr {
-    display: block;
-    background: #fff;
-    border-radius: 6px;
-    margin-bottom: 16px;
-    padding: 10px;
-  }
-
-  .correction-table td {
+  .correction-table tbody td {
     display: block;
     text-align: left;
-    border: none;
+    padding: 8px 6px;
+    border-bottom: 1px solid #e0e0e0;
   }
 
-  .correction-table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: #757575;
+  .correction-table tbody tr {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 6px 8px;
   }
 }

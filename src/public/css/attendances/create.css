@@ -1,5 +1,5 @@
 body {
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   color: #333;
   margin: 0;
@@ -165,17 +165,42 @@ body {
 }
 
 @media screen and (max-width: 767px) {
+  .attendance-wrapper {
+    padding-top: 60px;
+  }
+
+  .attendance-container {
+    padding: 20px;
+  }
+
   .date {
     font-size: 22px;
+    margin: 0 auto 15px;
+    text-align: center;
+  }
+
+  .date .weekday {
+    display: inline-block;
+    margin-left: 4px;
   }
 
   .time {
     font-size: 36px;
+    letter-spacing: 6px;
+    margin: 0 auto 30px;
+    top: 0;
   }
 
   .btn {
     font-size: 18px;
     min-width: 120px;
     padding: 12px 0;
+    margin: 20px auto 0;
+  }
+
+  .after-work {
+    font-size: 20px;
+    margin: 60px auto 0;
+    text-align: center;
   }
 }

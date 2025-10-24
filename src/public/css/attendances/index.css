@@ -5,7 +5,6 @@ body {
   color: #333;
 }
 
-/* 全体配置 */
 .attendance-list-wrapper {
   display: flex;
   flex-direction: column;
@@ -13,7 +12,6 @@ body {
   padding: 100px 20px;
 }
 
-/* タイトル */
 .page-title {
   font-size: 35px;
   font-weight: bold;
@@ -25,7 +23,6 @@ body {
   margin-left: calc((100% - 900px) / 2);
 }
 
-/* 月移動ナビ */
 .month-nav-container {
   width: 100%;
   max-width: 900px;
@@ -72,7 +69,6 @@ body {
   margin-right: 6px;
 }
 
-/* テーブル部分 */
 .attendance-list-container {
   width: 100%;
   max-width: 900px;
@@ -102,14 +98,13 @@ body {
   border-bottom: 2px solid #e0e0e0;
   font-size: 18px;
   font-weight: bold;
-  color: #555;
+  color: #757575;
 }
 
 .attendance-table tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* 詳細ボタン */
 .detail-button {
   display: inline-block;
   padding: 4px 10px;

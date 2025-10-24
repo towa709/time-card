@@ -85,6 +85,7 @@ body {
    レスポンシブ調整
 ======================================= */
 
+/* PC（1400〜1540px） */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
     font-size: 30px;
@@ -97,6 +98,7 @@ body {
   }
 }
 
+/* ノートPC（〜1366px） */
 @media screen and (max-width: 1366px) {
   .page-title {
     font-size: 28px;
@@ -113,6 +115,7 @@ body {
   }
 }
 
+/* タブレット（〜1024px） */
 @media screen and (max-width: 1024px) {
   .page-title {
     text-align: center;
@@ -123,39 +126,69 @@ body {
 
   .user-table {
     width: 90%;
+    max-width: 90%;
   }
 }
 
 @media screen and (max-width: 767px) {
+  body {
+    background-color: #e7e7e7;
+  }
+
+  .user-list-wrapper {
+    padding: 40px 10px;
+  }
+
   .page-title {
-    font-size: 20px;
+    font-size: 22px;
     text-align: center;
     border-left: none;
+    margin: 0 auto 30px auto;
   }
 
-  .user-table thead {
-    display: none;
-  }
-
-  .user-table tbody tr {
-    display: block;
+  .user-table {
+    width: 100%;
+    max-width: 95%;
     background-color: #fff;
-    border-radius: 6px;
-    margin-bottom: 16px;
-    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-x: auto;
+    table-layout: auto;
+    word-break: break-all;
   }
 
-  .user-table tbody td {
-    display: block;
-    text-align: left;
-    border: none;
-  }
-
-  .user-table tbody td::before {
-    content: attr(data-label);
-    font-weight: bold;
+  .user-table th,
+  .user-table td {
+    font-size: 13px;
+    padding: 10px 6px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
     color: #757575;
-    margin-bottom: 4px;
-    display: block;
+    white-space: nowrap;
+  }
+
+  .user-table thead th:nth-child(2),
+  .user-table tbody td:nth-child(2) {
+    width: auto;
+  }
+
+  .user-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .user-table td a {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    white-space: nowrap;
+  }
+
+  .user-table td a:hover {
+    opacity: 0.8;
   }
 }

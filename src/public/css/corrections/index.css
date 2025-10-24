@@ -1,5 +1,5 @@
 body {
-  background-color: #efeeec;
+  background-color: #e7e7e7;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
   color: #333;
   margin: 0;
@@ -31,12 +31,13 @@ body {
   margin-top: 25px;
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   padding-bottom: 5px;
+  border-bottom: 1px solid #201e1e;
 }
 
 .tab-nav::after {
-  content: "";
+  content: none;
   position: absolute;
   right: -50px;
   bottom: 0;
@@ -71,13 +72,13 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-top: 15px;
   font-weight: bold;
-  color: #757575;
+  color: #787474;
 }
 
 .correction-table thead th {
   background-color: #ffffff;
   font-weight: bold;
-  color: #555;
+  color: #787474;
   font-size: 15px;
   padding: 12px 10px;
   text-align: center;
@@ -112,69 +113,40 @@ body {
 /* PC（1400〜1540px） */
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
   .page-title {
-    font-size: 30px;
-    margin-left: 140px;
-  }
-
-  .tab-nav {
-    max-width: 960px;
-    gap: 80px;
-  }
-
-  .tab-nav::after {
-    width: 1000px;
-    right: -40px;
+    font-size: 32px;
+    margin-left: calc((100% - 850px) / 2);
   }
 
   .correction-table {
-    max-width: 1000px;
-  }
-
-  .correction-table thead th,
-  .correction-table tbody td {
-    font-size: 15px;
+    max-width: 850px;
   }
 }
 
 /* ノートPC（〜1366px） */
 @media screen and (max-width: 1366px) {
   .page-title {
-    font-size: 26px;
-    margin-left: 120px;
-  }
-
-  .tab-nav {
-    max-width: 900px;
-    gap: 70px;
-  }
-
-  .tab-nav::after {
-    width: 950px;
-    right: -30px;
+    font-size: 28px;
+    margin-left: calc((100% - 800px) / 2);
   }
 
   .correction-table {
-    max-width: 950px;
+    max-width: 800px;
   }
 }
 
 /* タブレット（〜1024px） */
 @media screen and (max-width: 1024px) {
   .page-title {
-    font-size: 24px;
+    font-size: 26px;
     margin-left: 0;
     text-align: center;
   }
 
   .tab-nav {
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
+    gap: 60px;
     max-width: 90%;
-  }
-
-  .tab-nav::after {
-    display: none;
+    border-bottom: 2px solid #201e1e;
   }
 
   .correction-table {
@@ -186,22 +158,37 @@ body {
 /* スマホ（〜767px） */
 @media screen and (max-width: 767px) {
   .page-title {
-    font-size: 20px;
-    text-align: center;
-    border-left: none;
-    padding-left: 0;
-    margin-left: 0;
+    font-size: 22px;
+    text-align: left;
+    border-left: 6px solid #000;
+    padding-left: 10px;
+    margin: 20px auto 30px;
+    width: 90%;
+    max-width: 320px;
   }
 
   .tab-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 2px solid #201e1e;
+    padding-bottom: 6px;
+    width: 90%;
+    max-width: 320px;
+    border-bottom: none;
+    margin: 25px auto 30px auto;
   }
 
   .tab-nav::after {
-    display: none;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 280px;
+    height: 2px;
+    background-color: #201e1e;
   }
 
   .correction-table {
