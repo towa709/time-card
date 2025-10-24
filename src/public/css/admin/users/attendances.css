@@ -20,7 +20,7 @@ body {
   padding-left: 10px;
   margin-bottom: 40px;
   align-self: flex-start;
-  margin-left: calc((100% - 900px) / 2);
+  margin-left: 150px
 }
 
 .month-nav-container {

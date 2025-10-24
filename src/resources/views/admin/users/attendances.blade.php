@@ -20,7 +20,7 @@
       <a href="{{ route('admin.attendances.user', ['id' => $user->id, 'month' => $prevMonth]) }}" class="nav-button">← 前月</a>
 
       <div class="month-picker" id="calendarContainer" style="position: relative; display: inline-block;">
-        <img src="{{ asset('images/calendar-icon8.jpeg') }}" alt="カレンダー" class="calendar-icon" id="calendarIcon" style="cursor: pointer;">
+        <img src="{{ asset('images/calendar-icon8.jpeg') }}" alt="カレンダー" class="calendar-icon" id="calendarIcon">
         <span class="current-month">{{ \Carbon\Carbon::parse($currentMonth)->format('Y/m') }}</span>
         <input type="text" id="hiddenDateInput" style="display:none;">
       </div>
@@ -102,6 +102,11 @@
       dateFormat: "Y-m",
       defaultDate: "{{ $currentMonth }}",
       appendTo: container,
+      plugins: [new monthSelectPlugin({
+        shorthand: true,
+        dateFormat: "Y-m",
+        altFormat: "Y年m月",
+      })],
       onChange: (selectedDates, dateStr) => {
         if (dateStr) {
           const url = "{{ route('admin.attendances.user', ['id' => $user->id]) }}?month=" + dateStr;
@@ -113,4 +118,7 @@
     icon.addEventListener('click', () => fp.open());
   });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css">
 @endsection

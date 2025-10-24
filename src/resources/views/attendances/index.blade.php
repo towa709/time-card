@@ -121,6 +121,29 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    // カレンダーアイコンと入力要素を取得
+    const calendarIcon = document.querySelector('.calendar-icon');
+    const monthInput = document.getElementById('monthInput');
+
+    // input要素を隠す（ただし機能は有効）
+    monthInput.style.position = 'absolute';
+    monthInput.style.opacity = 0;
+    monthInput.style.pointerEvents = 'none';
+
+    // カレンダーアイコンをクリックしたら input を開く
+    calendarIcon.addEventListener('click', () => {
+      monthInput.showPicker(); // ✅ Chrome, Edge, Safari対応
+    });
+
+    // カレンダーの位置を調整
+    const pickerContainer = document.querySelector('.month-picker');
+    pickerContainer.style.position = 'relative';
+
+    // Chrome等のネイティブpickerは位置指定不可なので、
+    // 見た目上のアイコン下に重なるよう margin で微調整
+    monthInput.style.marginTop = '5px';
+
+    // 勤怠テーブルの表示調整
     document.querySelectorAll('.attendance-table tbody tr').forEach(row => {
       const cells = row.querySelectorAll('td');
       const clockIn = cells[1]?.textContent.trim();
